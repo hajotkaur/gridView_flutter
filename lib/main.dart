@@ -21,8 +21,24 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  String? text;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(leading: Text('$Text')),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          TextField(
+            decoration: InputDecoration(hintText: 'Enter your text'),
+            onChanged: (newText) {
+              setState(() => text = newText);
+            },
+          ),
+          ElevatedButton(onPressed: null, child: Text('Submit')),
+        ],
+      ),
+    );
   }
 }
